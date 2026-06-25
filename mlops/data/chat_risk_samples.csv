@@ -1,0 +1,16 @@
+text,label
+"hello team can we review the deployment plan",clean
+"the websocket latency numbers look stable today",clean
+"please join the backend scaling room",clean
+"thanks for the detailed architecture notes",clean
+"can you share the incident timeline",clean
+"urgent money offer click this scam link",risky
+"send me your password and credit card now",risky
+"you are stupid and I will attack you",risky
+"hate speech abuse and threats are not allowed",risky
+"fraud alert password reset scam",risky
+"meeting moved to 3 pm",clean
+"postgres migration finished successfully",clean
+"kill the service immediately",risky
+"free prize urgent transfer money",risky
+"redis fanout is working",clean

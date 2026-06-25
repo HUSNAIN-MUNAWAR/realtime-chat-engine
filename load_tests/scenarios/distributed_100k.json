@@ -1,0 +1,9 @@
+{
+  "users": 100000,
+  "rooms": 1000,
+  "message_rate": 1,
+  "ramp_up": 600,
+  "duration": 600,
+  "shards": 20,
+  "note": "Run one shard per load generator host/process. Do not run this on a laptop."
+}

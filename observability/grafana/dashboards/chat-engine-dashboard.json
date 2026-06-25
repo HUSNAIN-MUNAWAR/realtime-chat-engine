@@ -1,0 +1,101 @@
+{
+  "id": null,
+  "uid": "chat-engine-overview",
+  "title": "Chat Engine Overview",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Active WebSocket Connections",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "chat_ws_active_connections"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Active Rooms",
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "chat_active_rooms"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Messages Sent / sec",
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(chat_messages_sent_total[1m])"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "p95 Message Processing Latency",
+      "gridPos": {
+        "x": 12,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, rate(chat_message_processing_seconds_bucket[5m]))"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "ML Prediction Rate",
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(chat_ml_predictions_total[1m])"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Rate Limit Events",
+      "gridPos": {
+        "x": 12,
+        "y": 12,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(chat_rate_limit_events_total[1m])"
+        }
+      ]
+    }
+  ]
+}

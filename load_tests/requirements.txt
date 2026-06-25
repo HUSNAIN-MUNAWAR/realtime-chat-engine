@@ -1,0 +1,4 @@
+aiohttp==3.11.10
+websockets==14.1
+python-jose[cryptography]==3.3.0
+psutil==6.1.0

@@ -1,0 +1,12 @@
+{
+  "model_name": "chat-risk-naive-bayes",
+  "version": "nb-risk-v1",
+  "task": "spam/toxicity/risk scoring for chat messages",
+  "trained_from": "mlops/data/chat_risk_samples.csv",
+  "output": "risk probability + label clean/review/risky",
+  "limitations": [
+    "Small demo dataset",
+    "Not suitable as a production moderation model without stronger data and evaluation",
+    "Used here to demonstrate MLOps integration and observability"
+  ]
+}

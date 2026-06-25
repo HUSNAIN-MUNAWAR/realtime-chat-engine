@@ -1,0 +1,12 @@
+services:
+  backend:
+    command: ["bash", "/app/backend/scripts/start-dev.sh"]
+    volumes:
+      - ./backend:/app/backend
+      - ./mlops:/app/mlops
+      - ./load_tests:/app/load_tests
+  frontend:
+    command: ["npm", "run", "dev"]
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules

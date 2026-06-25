@@ -1,0 +1,7 @@
+{
+  "users": 1000,
+  "rooms": 100,
+  "message_rate": 0.2,
+  "ramp_up": 120,
+  "duration": 180
+}

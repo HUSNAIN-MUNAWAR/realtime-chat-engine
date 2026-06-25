@@ -1,16 +1,20 @@
 # Realtime Chat Engine
 
-**A horizontally scalable FastAPI + WebSocket chat engine with Redis fanout, PostgreSQL persistence, observability, and a configurable 100k virtual-user load-testing framework.**
+**A horizontally scalable FastAPI + WebSocket chat engine with Redis fanout, PostgreSQL persistence, observability, a real 1,000-concurrent-user WebSocket validation profile, and a configurable distributed 100k virtual-user load-testing framework.**
 
 <p align="left">
-  <a href="#local-setup"><img alt="Run locally" src="https://img.shields.io/badge/Run%20Locally-111827?style=for-the-badge&logo=docker&logoColor=white"></a>
-  <a href="#architecture-overview"><img alt="Architecture" src="https://img.shields.io/badge/System%20Architecture-111827?style=for-the-badge&logo=diagramdotnet&logoColor=white"></a>
-  <a href="docs/websocket-protocol.md"><img alt="WebSocket protocol" src="https://img.shields.io/badge/WebSocket%20Protocol-111827?style=for-the-badge&logo=socketdotio&logoColor=white"></a>
+  <img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&labelColor=4B5563&logo=python&logoColor=white">
+  <img alt="FastAPI Backend" src="https://img.shields.io/badge/FastAPI-Backend-009688?style=flat&labelColor=4B5563&logo=fastapi&logoColor=white">
+  <img alt="Next.js Frontend" src="https://img.shields.io/badge/Next.js-Frontend-000000?style=flat&labelColor=4B5563&logo=nextdotjs&logoColor=white">
+  <img alt="WebSocket Realtime" src="https://img.shields.io/badge/WebSocket-Realtime-111827?style=flat&labelColor=4B5563">
+  <img alt="Redis Fanout" src="https://img.shields.io/badge/Redis-Fanout-DC382D?style=flat&labelColor=4B5563&logo=redis&logoColor=white">
+  <img alt="PostgreSQL Persistence" src="https://img.shields.io/badge/PostgreSQL-Persistence-4169E1?style=flat&labelColor=4B5563&logo=postgresql&logoColor=white">
+  <img alt="1,000 concurrent realtime users" src="https://img.shields.io/badge/1,000-Concurrent%20Realtime%20Users-16A34A?style=flat&labelColor=4B5563">
 </p>
 
 ## About
 
-This repository is built as a serious engineering portfolio project for backend, platform, MLOps, and distributed-systems roles. It is not a CRUD demo and it is not a toy Socket.IO clone. The code includes real authentication, real WebSocket message flow, real persistence, real Redis fanout, real risk scoring, real metrics, and a load-test runner that can open real WebSocket connections and validate acknowledgements.
+This repository is built as a serious engineering portfolio project for backend, platform, MLOps, and distributed-systems roles. It is not a CRUD demo and it is not a toy Socket.IO clone. The code includes real authentication, real WebSocket message flow, real persistence, real Redis fanout, real risk scoring, real metrics, and a load-test runner that can open real WebSocket connections and validate acknowledgements. The practical local target is **1,000 concurrent real-time users** with `make load-test-1k`; larger profiles are separated so the project stays honest about hardware limits.
 
 > **Important honesty note:** this repo includes a **100k virtual-user simulation mode**, but a single laptop will usually not sustain 100k real WebSocket clients. The README intentionally separates local profiles from the distributed 100k profile. Use the included 100 / 1k / 10k local profiles first, then run 100k as a distributed multi-machine or multi-container test.
 
@@ -50,7 +54,7 @@ This repository is built as a serious engineering portfolio project for backend,
 
 ![MLOps dashboard with model metadata and live inference result](docs/screenshots/mlops.png)
 
-Screenshots are captured from the running Next.js app. The chat, admin, load-test, observability, and MLOps screenshots use the same UI routes as the product with documentation fixture data, while the full-stack Docker profile connects those routes to FastAPI, Redis, PostgreSQL, Prometheus, and Grafana.
+Screenshots are captured from the running Next.js app routes. In full-stack mode, the same login, register, chat, admin, load-test, observability, and MLOps surfaces connect to FastAPI, Redis, PostgreSQL, Prometheus, and Grafana. The README does not include fabricated benchmark numbers.
 
 ---
 

@@ -25,7 +25,7 @@ Then generate screenshots:
 make screenshots
 ```
 
-The Playwright script saves landing, login, register, chat, admin, load-tests, observability, and mlops screenshots from the real running frontend. For backend-dependent pages, the script injects documentation fixture data and a mock WebSocket transport so the screens show the full product UI without requiring Docker during screenshot generation.
+The Playwright script saves landing, login, register, chat, admin, load-tests, observability, and mlops screenshots from the running frontend routes. For live backend-backed captures, start the full Docker stack first so the same product surfaces connect to FastAPI, Redis, PostgreSQL, Prometheus, and Grafana.
 
 For frontend-only verification without Docker, run:
 

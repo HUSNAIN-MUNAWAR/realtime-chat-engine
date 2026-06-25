@@ -1,9 +1,16 @@
 # Screenshots
 
-The committed portfolio screenshot is:
+The committed portfolio gallery contains:
 
 ```text
-docs/screenshots/portfolio-overview.png
+docs/screenshots/landing.png
+docs/screenshots/login.png
+docs/screenshots/register.png
+docs/screenshots/chat.png
+docs/screenshots/admin.png
+docs/screenshots/load-tests.png
+docs/screenshots/observability.png
+docs/screenshots/mlops.png
 ```
 
 Run the app first:
@@ -18,7 +25,7 @@ Then generate screenshots:
 make screenshots
 ```
 
-The Playwright script saves landing, login, register, chat, admin, load-tests, observability, and mlops screenshots from the real running frontend. It does not use mock screenshots.
+The Playwright script saves landing, login, register, chat, admin, load-tests, observability, and mlops screenshots from the real running frontend. For backend-dependent pages, the script injects documentation fixture data and a mock WebSocket transport so the screens show the full product UI without requiring Docker during screenshot generation.
 
 For frontend-only verification without Docker, run:
 
@@ -27,5 +34,5 @@ cd frontend
 npm ci
 npm run build
 npm start
-npx playwright screenshot --browser=chromium --viewport-size=1440,1100 --full-page http://localhost:3000 ../docs/screenshots/portfolio-overview.png
+npx playwright test tests/screenshots.spec.ts
 ```

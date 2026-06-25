@@ -5,6 +5,8 @@ __pycache__/
 node_modules/
 .venv/
 .next/
+test-results/
+frontend/test-results/
 dist/
 build/
 *.log
@@ -15,4 +17,4 @@ load_tests/reports/*.md
 mlops/reports/*.json
 !mlops/reports/.gitkeep
 docs/screenshots/*.png
-!docs/screenshots/portfolio-overview.png
+!docs/screenshots/*.png

@@ -3,16 +3,12 @@
 **A horizontally scalable FastAPI + WebSocket chat engine with Redis fanout, PostgreSQL persistence, observability, and a configurable 100k virtual-user load-testing framework.**
 
 <p align="left">
-  <a href="#local-setup"><img alt="Run locally" src="https://img.shields.io/badge/Run%20Locally-2563EB?style=for-the-badge&logo=docker&logoColor=white"></a>
-  <a href="#architecture-overview"><img alt="Architecture" src="https://img.shields.io/badge/System%20Architecture-2563EB?style=for-the-badge&logo=diagramdotnet&logoColor=white"></a>
-  <a href="docs/websocket-protocol.md"><img alt="WebSocket protocol" src="https://img.shields.io/badge/WebSocket%20Protocol-2563EB?style=for-the-badge&logo=socketdotio&logoColor=white"></a>
+  <a href="#local-setup"><img alt="Run locally" src="https://img.shields.io/badge/Run%20Locally-111827?style=for-the-badge&logo=docker&logoColor=white"></a>
+  <a href="#architecture-overview"><img alt="Architecture" src="https://img.shields.io/badge/System%20Architecture-111827?style=for-the-badge&logo=diagramdotnet&logoColor=white"></a>
+  <a href="docs/websocket-protocol.md"><img alt="WebSocket protocol" src="https://img.shields.io/badge/WebSocket%20Protocol-111827?style=for-the-badge&logo=socketdotio&logoColor=white"></a>
 </p>
 
 ## About
-
-<p align="left">
-  <a href="#local-setup"><img alt="Open setup guide" src="https://img.shields.io/badge/Open%20Setup%20Guide-0B63CE?style=for-the-badge&logo=readme&logoColor=white"></a>
-</p>
 
 This repository is built as a serious engineering portfolio project for backend, platform, MLOps, and distributed-systems roles. It is not a CRUD demo and it is not a toy Socket.IO clone. The code includes real authentication, real WebSocket message flow, real persistence, real Redis fanout, real risk scoring, real metrics, and a load-test runner that can open real WebSocket connections and validate acknowledgements.
 
@@ -20,11 +16,41 @@ This repository is built as a serious engineering portfolio project for backend,
 
 ---
 
-## Live screenshot
+## Product screens
 
-![Realtime Chat Engine landing page](docs/screenshots/portfolio-overview.png)
+### Landing
 
-Captured from the running Next.js app at `http://localhost:3000`.
+![Realtime Chat Engine landing page](docs/screenshots/landing.png)
+
+### Login
+
+![Login screen with demo admin credentials](docs/screenshots/login.png)
+
+### Register
+
+![Register screen with account creation form](docs/screenshots/register.png)
+
+### Real-time chat
+
+![Chat workspace with WebSocket messages, risk labels, and thread panel](docs/screenshots/chat.png)
+
+### Admin dashboard
+
+![Admin dashboard with live platform metrics and risky message queue](docs/screenshots/admin.png)
+
+### Load testing
+
+![Load test dashboard with local and 100k distributed profiles](docs/screenshots/load-tests.png)
+
+### Observability
+
+![Observability dashboard with Prometheus query examples and system metrics](docs/screenshots/observability.png)
+
+### MLOps
+
+![MLOps dashboard with model metadata and live inference result](docs/screenshots/mlops.png)
+
+Screenshots are captured from the running Next.js app. The chat, admin, load-test, observability, and MLOps screenshots use the same UI routes as the product with documentation fixture data, while the full-stack Docker profile connects those routes to FastAPI, Redis, PostgreSQL, Prometheus, and Grafana.
 
 ---
 

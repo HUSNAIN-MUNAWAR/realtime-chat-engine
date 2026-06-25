@@ -274,7 +274,7 @@ flowchart LR
     WS1 --> DB
     WS2 --> DB
     LT --> REP[JSON + Markdown report]
-    WS1 --> MET[/metrics]
+    WS1 --> MET["/metrics"]
     WS2 --> MET
     MET --> PROM[Prometheus]
 ```
@@ -287,7 +287,7 @@ flowchart LR
     T --> M[models/current/risk_model.json]
     M --> E[evaluation/evaluate_risk_model.py]
     E --> R[reports/evaluation_report.json]
-    M --> API[/api/v1/mlops/score]
+    M --> API["/api/v1/mlops/score"]
     API --> MSG[Message risk score saved in DB]
     MSG --> ADM[Admin risky messages dashboard]
     API --> PM[Prometheus ML latency and count metrics]

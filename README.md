@@ -469,6 +469,22 @@ make train-model
 python mlops/evaluation/evaluate_risk_model.py
 ```
 
+### Measured local runtime evidence
+
+The checked-in model can be exercised locally without inventing benchmark
+numbers:
+
+```bash
+make runtime-evidence
+```
+
+This runs `nb-risk-v1` against all 15 checked-in labeled messages and writes a
+CSV trace, an MP4 animation rendered from the measured predictions, a poster,
+and a hash-addressed summary under [`docs/runtime_evidence/`](docs/runtime_evidence/).
+The current evidence records 15/15 sample-label matches. This is a local model
+inference trace, not a claim that PostgreSQL, Redis, or the live WebSocket
+gateway ran without the Docker Compose services.
+
 ---
 
 ## Load testing

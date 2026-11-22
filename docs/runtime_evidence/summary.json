@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "model_version": "nb-risk-v1",
+  "model_path": "mlops\\models\\current\\risk_model.json",
+  "input_path": "mlops\\data\\chat_risk_samples.csv",
+  "samples": 15,
+  "exact_label_matches": 15,
+  "sample_accuracy": 1.0,
+  "mean_measured_latency_ms": 0.018,
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "fps": 2.0,
+    "decoded_frames": 15
+  },
+  "claim_boundary": "This proves local model inference and an evidence rendering. It does not claim a live PostgreSQL/Redis/WebSocket deployment because those services were unavailable on the validation host.",
+  "artifacts": {
+    "risk-model-trace.csv": {
+      "bytes": 1344,
+      "sha256": "9788ad7e25b07bf4cf5052413ad836af7d33d300df975ce43ed1c8c9bcf15a65"
+    },
+    "risk-model-runtime.mp4": {
+      "bytes": 334148,
+      "sha256": "c7b4801027e6f67acb648d73287beca5a378a96d187d944b639c5ad7b1989dd3"
+    },
+    "risk-model-runtime-poster.jpg": {
+      "bytes": 74025,
+      "sha256": "06e35f07190242980c9d5662290aacc1c4227fba7986939588374b09cc6b011d"
+    }
+  }
+}

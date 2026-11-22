@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: up down logs test backend-test frontend-test load-test-small load-test-1k load-test-10k train-model screenshots fmt
+.PHONY: up down logs test backend-test frontend-test load-test-small load-test-1k load-test-10k train-model runtime-evidence screenshots fmt
 
 up:
 	docker compose up --build
@@ -23,6 +23,9 @@ frontend-test:
 
 train-model:
 	docker compose run --rm backend python /app/mlops/training/train_risk_model.py --data /app/mlops/data/chat_risk_samples.csv --out /app/mlops/models/current/risk_model.json
+
+runtime-evidence:
+	python scripts/generate_runtime_evidence.py
 
 load-test-small:
 	python load_tests/ws_load_test.py --base-url http://localhost:8000 --ws-url ws://localhost:8000/ws --users 100 --rooms 10 --message-rate 1 --ramp-up 20 --duration 60 --auth-mode provision

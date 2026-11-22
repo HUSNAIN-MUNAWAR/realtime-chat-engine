@@ -1,0 +1,16 @@
+sequence,text,expected_label,predicted_label,score,model_version,model_reported_latency_ms,measured_latency_ms
+1,hello team can we review the deployment plan,clean,clean,0.0016,nb-risk-v1,0.022,0.065
+2,the websocket latency numbers look stable today,clean,clean,0.0048,nb-risk-v1,0.012,0.026
+3,please join the backend scaling room,clean,clean,0.0095,nb-risk-v1,0.008,0.017
+4,thanks for the detailed architecture notes,clean,clean,0.0095,nb-risk-v1,0.007,0.014
+5,can you share the incident timeline,clean,clean,0.0188,nb-risk-v1,0.007,0.014
+6,urgent money offer click this scam link,risky,risky,0.9975,nb-risk-v1,0.008,0.027
+7,send me your password and credit card now,risky,risky,0.9986,nb-risk-v1,0.009,0.015
+8,you are stupid and I will attack you,risky,risky,0.9975,nb-risk-v1,0.008,0.014
+9,hate speech abuse and threats are not allowed,risky,risky,0.9986,nb-risk-v1,0.008,0.013
+10,fraud alert password reset scam,risky,risky,0.985,nb-risk-v1,0.007,0.012
+11,meeting moved to 3 pm,clean,clean,0.0277,nb-risk-v1,0.006,0.012
+12,postgres migration finished successfully,clean,clean,0.0535,nb-risk-v1,0.006,0.013
+13,kill the service immediately,risky,risky,0.72,nb-risk-v1,0.006,0.012
+14,free prize urgent transfer money,risky,risky,0.985,nb-risk-v1,0.006,0.012
+15,redis fanout is working,clean,clean,0.0535,nb-risk-v1,0.006,0.011

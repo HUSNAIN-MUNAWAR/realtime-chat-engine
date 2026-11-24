@@ -9,6 +9,10 @@ async def is_member(session: AsyncSession, room_id: str, user_id: str) -> bool:
 async def get_message_by_client_id(session: AsyncSession, sender_id: str, client_message_id: str) -> Message | None:
     return await session.scalar(select(Message).where(Message.sender_id == sender_id, Message.client_message_id == client_message_id))
 
+async def is_room_message(session: AsyncSession, message_id: str, room_id: str) -> bool:
+    """Check both message existence and room ownership before recording a receipt."""
+    return bool(await session.scalar(select(Message.id).where(Message.id == message_id, Message.room_id == room_id)))
+
 async def create_message(session: AsyncSession, room_id: str, sender_id: str, client_message_id: str, content: str, parent_message_id: str | None, risk: dict) -> Message:
     message = Message(room_id=room_id, sender_id=sender_id, client_message_id=client_message_id, content=content, parent_message_id=parent_message_id, risk_score=risk["score"], risk_label=risk["label"])
     session.add(message)

@@ -13,7 +13,7 @@ from app.observability.metrics import MESSAGE_LATENCY, MESSAGES_RECEIVED, MESSAG
 from app.realtime.manager import ClientConnection, manager
 from app.realtime.protocol import ClientEvent
 from app.security.jwt import decode_token
-from app.services.message_service import add_delivery_receipt, add_read_receipt, create_message, get_message_by_client_id, is_member, message_to_event
+from app.services.message_service import add_delivery_receipt, add_read_receipt, create_message, get_message_by_client_id, is_member, is_room_message, message_to_event
 from app.services.rate_limiter import RedisRateLimiter
 
 router = APIRouter()
@@ -108,6 +108,9 @@ async def handle_event(event: ClientEvent, user: User, connection_id: str, webso
         message_id, room_id = event.payload.get("message_id"), event.payload.get("room_id")
         if message_id and room_id:
             async with AsyncSessionLocal() as session:
+                if not await is_member(session, room_id, user.id) or not await is_room_message(session, message_id, room_id):
+                    await websocket.send_json({"type": "error.validation", "request_id": event.request_id, "payload": {"detail": "Message does not belong to an accessible room"}})
+                    return
                 await add_delivery_receipt(session, message_id, user.id)
             await publish_event({"type": "room", "room_id": room_id}, {"type": "message.delivered", "payload": {"message_id": message_id, "user_id": user.id}})
         return
@@ -116,6 +119,9 @@ async def handle_event(event: ClientEvent, user: User, connection_id: str, webso
         message_id, room_id = event.payload.get("message_id"), event.payload.get("room_id")
         if message_id and room_id:
             async with AsyncSessionLocal() as session:
+                if not await is_member(session, room_id, user.id) or not await is_room_message(session, message_id, room_id):
+                    await websocket.send_json({"type": "error.validation", "request_id": event.request_id, "payload": {"detail": "Message does not belong to an accessible room"}})
+                    return
                 await add_read_receipt(session, message_id, user.id)
             await publish_event({"type": "room", "room_id": room_id}, {"type": "message.read", "payload": {"message_id": message_id, "user_id": user.id}})
         return
